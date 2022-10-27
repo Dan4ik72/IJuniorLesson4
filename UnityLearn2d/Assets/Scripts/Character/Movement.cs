@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -23,16 +24,16 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(_speed * Time.deltaTime, 0, 0);
-
             _spriteRenderer.flipX = false;
+
+            transform.Translate(_speed * Time.deltaTime, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
-
             _spriteRenderer.flipX = true;
+
+            transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
         }
 
         _currentPositionChanging = startXPosition - transform.position.x;

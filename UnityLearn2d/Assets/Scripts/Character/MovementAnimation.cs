@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Animator))]
 public class MovementAnimation : MonoBehaviour
 {
     private Animator _animator;    

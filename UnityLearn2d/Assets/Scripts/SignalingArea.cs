@@ -6,13 +6,13 @@ public class SignalingArea : MonoBehaviour
 {
     [SerializeField] private Signaling _signaling;
 
-    public bool IsEntered { get; private set; } = false;
+    private bool _isEntered  = false;
     
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IsEntered = !IsEntered;
+        _isEntered = !_isEntered;
 
-        if (IsEntered == true)
+        if (_isEntered == true)
             _signaling.StartAlarm();
         else
             _signaling.StopAlarm();
