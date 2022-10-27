@@ -6,17 +6,19 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class MovementAnimation : MonoBehaviour
 {
+    private readonly int _isRunningHash = Animator.StringToHash("IsRunning");
+
     private Animator _animator;    
     private Movement _movement;
-
+    
     private void Start()
     {
         _movement = GetComponent<Movement>();
-        _animator = GetComponent<Animator>();        
+        _animator = GetComponent<Animator>();
     }
              
     private void Update()
     {  
-        _animator.SetBool("IsRunning", _movement.IsRunning);
+        _animator.SetBool(_isRunningHash, _movement.IsRunning);
     }
 }
